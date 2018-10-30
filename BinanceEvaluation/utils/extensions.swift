@@ -13,7 +13,7 @@ import UIKit
 extension String {
     
     func size(font: UIFont) -> CGSize {
-        let fontAttributes = [NSAttributedStringKey.font: font]
+        let fontAttributes = [NSAttributedString.Key.font: font]
         return self.size(withAttributes: fontAttributes)
     }
     
@@ -25,11 +25,11 @@ extension String {
         style.lineBreakMode = .byTruncatingTail
         
         let attributedString = NSMutableAttributedString(string: self, attributes: [
-            NSAttributedStringKey.font : font,
-            NSAttributedStringKey.foregroundColor : color
+            NSAttributedString.Key.font : font,
+            NSAttributedString.Key.foregroundColor : color
         ])
         
-        attributedString .addAttribute(NSAttributedStringKey.paragraphStyle, value: style, range: NSMakeRange(0, self.count))
+        attributedString .addAttribute(NSAttributedString.Key.paragraphStyle, value: style, range: NSMakeRange(0, self.count))
         
         return attributedString
     }

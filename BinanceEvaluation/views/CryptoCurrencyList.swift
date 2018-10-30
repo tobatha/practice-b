@@ -11,7 +11,7 @@ import UIKit
 class CryptoCurrencyList: UIView {
     
     private lazy var loader : UIActivityIndicatorView = {
-        let view = UIActivityIndicatorView(activityIndicatorStyle: .white)
+        let view = UIActivityIndicatorView(style: .white)
         view.width = 30
         view.height = 30
         view.center = CGPoint(x: Screen.width / 2, y: Screen.height / 2)
