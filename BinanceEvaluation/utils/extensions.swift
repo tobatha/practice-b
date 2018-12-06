@@ -69,88 +69,54 @@ extension UITableViewCell {
 
 extension UIView {
     
-    var left : CGFloat {
-        set {
-            var frame      = self.frame
-            frame.origin.x = newValue
-            self.frame     = frame
-        }
-        get {
-            return self.frame.origin.x
-        }
+    public var width: CGFloat {
+        get { return self.frame.size.width }
+        set { self.frame.size.width = newValue }
     }
     
-    var top : CGFloat {
-        set {
-            var frame      = self.frame
-            frame.origin.y = newValue
-            self.frame     = frame
-        }
-        get {
-            return self.frame.origin.y
-        }
+    public var height: CGFloat {
+        get { return self.frame.size.height }
+        set { self.frame.size.height = newValue }
     }
     
-    var right : CGFloat {
-        set {
-            var frame = self.frame
-            frame.origin.x = newValue - frame.size.width
-            self.frame = frame
-        }
-        get {
-            return self.frame.origin.x + self.frame.size.width
-        }
+    public var top: CGFloat {
+        get { return self.frame.origin.y }
+        set { self.frame.origin.y = newValue }
     }
     
-    var bottom : CGFloat {
-        set {
-            var frame = self.frame
-            frame.origin.y = bottom - frame.size.height
-            self.frame = frame
-        }
-        get {
-            return self.frame.origin.y + self.frame.size.height
-        }
+    public var right: CGFloat {
+        get { return self.frame.origin.x + self.width }
+        set { self.frame.origin.x = newValue - self.width }
     }
     
-    var width : CGFloat {
-        set {
-            var frame        = self.frame
-            frame.size.width = newValue
-            self.frame       = frame
-        }
-        get {
-            return self.frame.size.width
-        }
+    public var bottom: CGFloat {
+        get { return self.frame.origin.y + self.height }
+        set { self.frame.origin.y = newValue - self.height }
     }
     
-    var height : CGFloat {
-        set {
-            var frame         = self.frame
-            frame.size.height = newValue
-            self.frame        = frame
-        }
-        get {
-            return self.frame.size.height
-        }
+    public var left: CGFloat {
+        get { return self.frame.origin.x }
+        set { self.frame.origin.x = newValue }
     }
     
-    var centerX : CGFloat {
-        set {
-            self.center = CGPoint(x: newValue, y: self.center.y)
-        }
-        get {
-            return self.center.x
-        }
+    public var centerX: CGFloat{
+        get { return self.center.x }
+        set { self.center = CGPoint(x: newValue,y: self.centerY) }
     }
     
-    var centerY : CGFloat {
-        set {
-            self.center = CGPoint(x: self.center.x, y: newValue)
-        }
-        get {
-            return self.center.y
-        }
+    public var centerY: CGFloat {
+        get { return self.center.y }
+        set { self.center = CGPoint(x: self.centerX,y: newValue) }
+    }
+    
+    public var origin: CGPoint {
+        set { self.frame.origin = newValue }
+        get { return self.frame.origin }
+    }
+    
+    public var size: CGSize {
+        set { self.frame.size = newValue }
+        get { return self.frame.size }
     }
 }
 
